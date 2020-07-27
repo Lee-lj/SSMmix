@@ -1,0 +1,69 @@
+1.jar包:aopalliance-.jaraspectjweaver-1.6.2.jar
+            commons-dbcp-1.4.jar
+            commons-logging-1.1.1.jar
+            commons-pool-1.6.jar
+            log4j-1.2.17.jar
+            mybatis-3.5.4.jar
+            mybatis-ehcache-1.0.3.jar
+            mybatis-spring-1.1.1.jar
+            mysql-connector-java-5.1.46.jar
+            ojdbc7.jar
+            slf4j-api-1.7.30.jar
+            spring-aop-4.3.9.RELEASE.jar
+            spring-beans-4.3.9.RELEASE.jar
+            spring-context-4.3.9.RELEASE.jar
+            spring-context-support-4.3.9.RELEASE.jar
+            spring-core-4.3.9.RELEASE.jar
+            spring-expression-4.3.9.RELEASE.jar
+            spring-jdbc-4.3.9.RELEASE.jar
+            spring-tx-4.3.9.RELEASE.jar
+            spring-web-4.3.9.RELEASE.jar
+            
+     2.创建表，创建类
+       Student表-Student类   属性和表中的属性一致
+       
+     3.（与Spring整合时，Mybatis的conf.xml可不用配置，将配置加到applicationContext.xml中）--MyBatis配置文件conf.xml（数据源、mapper.xml） --可省，将该文件中的配置 全部交由spring管理
+       spring配置文件 applicationContext.xml(将Mybatis的数据源、mapper.xml放入)
+       <!-- 配置Mybatis的数据源以及mapper.xml -->
+		
+		<!-- 配置数据源 替代Mybatis的config,xml-->
+		<!-- 这里用到dbcp包，数据源是BasicDataSource ，F3查看要配的东西，然后一一配置 url链接字符串-->
+		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<!-- drivername是驱动类-->
+		   <property name="driverClassName" value="${driver}"></property>
+			<property name="url" value="${url}"></property>
+			<property name="username" value="${username}"></property>
+			<property name="password" value="${password}"></property>
+		</bean>
+		<!-- 加载db.properties文件 -->
+	    <bean  id="config" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+		   <property name="locations">
+			<array>
+				<value>classpath:db.properties</value>
+			</array>
+		   </property>
+	    </bean>
+			
+		<!-- 配置mapper.xml -->
+	    <!-- 配置MyBatis需要的核心类：SqlSessionFactory -->
+	    <!-- 在SpringIoc容器中 创建MyBatis的核心类 SqlSesionFactory -->
+	    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		    <property name="dataSource" ref="dataSource"></property>
+		    <!-- 加载mapper.xml路径 -->
+		    <property name="mapperLocations" value="classpath:org/sm/mapper/*.xml"></property>
+		</bean>
+     4.通过映射文件mapper.xml将类和表建立映射关系
+     
+     5.之前使用MyBatis:conf.xml ->SqlSessionFacotry 
+                     现在整合的时候，需要通过Spring管理SqlSessionFacotry ，因此 产生qlSessionFacotry 所需要的数据库信息 不在放入conf.xml  而需要放入spring配置文件中
+                     配置Spring配置文件（applicationContext.xml）  （Web项目）可以alt+/快速生成：
+       web.xml
+ 	       <context-param>
+	       	<param-name>contextConfigLocation</param-name>
+	       	<param-value>classpath:applicationContext.xml</param-value>
+	       </context-param>
+
+	       <listener>
+	       	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	       </listener>
+	 6.配置Spring-mybatis整合(mapper.xml)

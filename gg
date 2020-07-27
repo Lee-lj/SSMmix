@@ -1,0 +1,117 @@
+question.ID,question.CONTENT,question.ASK_ID,question.TIME,question.IS_ANSWER
+"status": 1,
+    "msg": "操作成功",
+    "data": [
+        {
+            "id": 117,
+            "content": null,
+            "questionID": 44,
+            "answerID": 1635,
+            "time": null,
+            "isAnswer": 0
+        },
+        {
+            "id": 118,
+            "content": "等候学校通知！",
+            "questionID": 44,
+            "answerID": 1636,
+            "time": "2020-05-20 15:21:29.0",
+            "isAnswer": 1
+        },
+        {
+            "id": 119,
+            "content": null,
+            "questionID": 45,
+            "answerID": 1636,
+            "time": null,
+            "isAnswer": 0
+        },
+        {
+            "id": 120,
+            "content": null,
+            "questionID": 46,
+            "answerID": 1635,
+            "time": null,
+            "isAnswer": 0
+        },
+        {
+            "id": 121,
+            "content": "OK",
+            "questionID": 0,
+            "answerID": 10012,
+            "time": "2020-05-27 08:15:44.0",
+            "isAnswer": 1
+        },
+        {
+            "id": 122,
+            "content": "111",
+            "questionID": 0,
+            "answerID": 10012,
+            "time": "2020-05-27 08:20:49.0",
+            "isAnswer": 1
+        },
+        {
+            "id": 123,
+            "content": "2",
+            "questionID": 0,
+            "answerID": 10012,
+            "time": "2020-05-27 08:35:03.0",
+            "isAnswer": 1
+        },
+        {
+            "id": 124,
+            "content": null,
+            "questionID": 47,
+            "answerID": 1636,
+            "time": null,
+            "isAnswer": 0
+        },
+        {
+            "id": 125,
+            "content": "123",
+            "questionID": 48,
+            "answerID": 10017,
+            "time": "2020-05-27 15:17:59.0",
+            "isAnswer": 1
+        },
+        {
+            "id": 126,
+            "content": "123",
+            "questionID": 0,
+            "answerID": 10017,
+            "time": "2020-05-27 15:18:03.0",
+            "isAnswer": 1
+        },
+        {
+            "id": 127,
+            "content": "123",
+            "questionID": 0,
+            "answerID": 10017,
+            "time": "2020-05-27 15:18:07.0",
+            "isAnswer": 1
+        },
+        {
+            "id": 128,
+            "content": "111",
+            "questionID": 0,
+            "answerID": 10001,
+            "time": "2020-06-01 12:46:45.0",
+            "isAnswer": 1
+        },
+        {
+            "id": 129,
+            "content": "1",
+            "questionID": 49,
+            "answerID": 1635,
+            "time": "2020-06-01 13:13:04.0",
+            "isAnswer": 1
+        },
+        {
+            "id": 130,
+            "content": "2",
+            "questionID": 49,
+            "answerID": 1636,
+            "time": "2020-06-01 13:13:44.0",
+            "isAnswer": 1
+        }
+    ]
